@@ -44,14 +44,13 @@ void enQueue(struct Queue* q, int k)
     q->rear->next = temp; 
     q->rear = temp; 
 } 
-  
 
-int deQueue(struct Queue* q,int b) 
+void deQueue(struct Queue* q) 
 { 
     
     if (q->front == NULL) 
-       { b=0;
-        return b;
+       { 
+        return;
        }
  else{
   
@@ -63,8 +62,21 @@ int deQueue(struct Queue* q,int b)
         q->rear = NULL; 
   
     free(temp);
-    return b;
+    
 } 
+}
+  
+
+int check(struct Queue* q) 
+{ 
+    
+    if (q->front == NULL) 
+       
+        return 0;
+       
+ else return 1;
+  
+   
 }
  
 int main() 
@@ -81,30 +93,30 @@ int main()
     int n=1;
 
     if(n==1)
-    {if(deQueue(HarryPotter,1)==0)
+    {if(check(HarryPotter)==0)
     {printf("Reservation Confirmed\n");
     enQueue(HarryPotter,1);
     }
     else("Book engaged\n");
  }
     if(n==2)
-   {if(deQueue(Inkheart,1)==0)
+   {if(check(Inkheart)==0)
     enQueue(Inkheart,1);
     else("Book engaged");
     }
     if(n==3)
- {if(deQueue(ArtemisFowl,1)==0)
+ {if(check(ArtemisFowl)==0)
     enQueue(ArtemisFowl,1);
     else("Book engaged");
     }
     if(n==4)
-   {if(deQueue(HungerGames,1)==0)
+   {if(check(HungerGames)==0)
     enQueue(HungerGames,1);
     else("Book engaged");
     }
- int c=deQueue(HarryPotter,1);
+
    
-    if(deQueue(HarryPotter,1)==0)
+    if(check(HarryPotter)==0)
     {printf("Reservation confirmed");
     enQueue(HarryPotter,1);
     }
